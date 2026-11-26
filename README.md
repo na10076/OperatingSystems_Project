@@ -130,7 +130,7 @@ Extras made as well: 10b (CPU share by policy), 11b (wake-up delay boxes), A (vi
 B (detector quality by policy), C (false alarms at 95% detection per virus type).
 Note: our harmless look-alike for fig 9 is a "batch job" (busy for 2 s, then rests), which plays the role of the compile.
 
-## How a run works (so you can explain it)
+## How a run works
 - The **logger** reads the program's numbers (CPU, memory, bytes written, time spent waiting for a CPU) every 0.5 s.
   It sits alone on the last CPU core; the programs and 3 background "hog" programs share the other cores,
   so there is real competition for the CPU - that is where the policy makes a difference.
@@ -148,7 +148,7 @@ Note: our harmless look-alike for fig 9 is a "batch job" (busy for 2 s, then res
 - Order is random: rounds, policy order and run order are shuffled; the first run after each policy switch is a
   discarded warm-up. The scheduler's own output is saved in `results/sched_logs/`.
 
-## Honest limits (put these in the report)
+## Honest limits
 - It runs in a virtual machine on one laptop whose chip may slow itself down when hot: small timing wobble.
 - The look-alike and virus behaviours are our own designs; results apply to these programs, not all malware.
 - The EEVDF baseline is CachyOS's `linux-cachyos-eevdf` kernel: EEVDF plus CachyOS's own patches, not an unmodified kernel.
@@ -162,7 +162,7 @@ Note: our harmless look-alike for fig 9 is a "batch job" (busy for 2 s, then res
   e.g. the bpfland README still describes a separate interactive queue that v1.1.4 no longer has).
 - Disk test writes about 25-30 GB in total over the full experiment.
 
-## Published code and methods used (cite these)
+## Published code and methods used 
 **No detector logic is invented by us.** Each part is a published method run through published library code:
 
 | Part | What it is | Published source |
